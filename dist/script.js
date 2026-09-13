@@ -3,6 +3,8 @@ const siteNav = document.querySelector(".site-nav");
 const header = document.querySelector("[data-header]");
 const birdButton = document.querySelector("#bird-button");
 const birdOpinion = document.querySelector("#bird-opinion");
+const memeCollection = document.querySelector("#meme-collection");
+const memeTemplate = document.querySelector("#meme-card-template");
 
 const birdOpinions = [
   "Reject the null hypothesis. Accept one sunflower seed.",
@@ -47,3 +49,33 @@ birdButton?.addEventListener("click", () => {
   lastOpinion = nextOpinion;
   birdOpinion.textContent = birdOpinions[nextOpinion];
 });
+
+async function loadMemeCollection() {
+  if (!memeCollection || !memeTemplate) return;
+
+  try {
+    const response = await fetch("data/memes.json");
+    if (!response.ok) return;
+    const memes = await response.json();
+    if (!Array.isArray(memes) || memes.length === 0) return;
+
+    memeCollection.replaceChildren();
+    memeCollection.classList.add("has-items");
+
+    memes.forEach((meme, index) => {
+      const card = memeTemplate.content.cloneNode(true);
+      const image = card.querySelector("img");
+      image.src = meme.image;
+      image.alt = meme.alt || meme.title || "Collected bird meme";
+      card.querySelector(".meme-card-label").textContent =
+        meme.label || `Specimen ${String(index + 1).padStart(2, "0")}`;
+      card.querySelector(".meme-card-title").textContent = meme.title || "Untitled bird";
+      card.querySelector(".meme-card-note").textContent = meme.note || "Provenance unknown.";
+      memeCollection.appendChild(card);
+    });
+  } catch {
+    // Keep the designed empty state when the archive is viewed offline.
+  }
+}
+
+loadMemeCollection();

@@ -471,6 +471,10 @@ img {
   font-size: 1.05rem;
 }
 
+.project-body > p + p {
+  margin-top: 0.85rem;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -495,6 +499,57 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.poster-feature {
+  margin: 1rem 0 0;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.poster-feature > a {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #eef4f8;
+}
+
+.poster-feature img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  transition: transform 240ms ease;
+}
+
+.poster-feature > a:hover img,
+.poster-feature > a:focus-visible img {
+  transform: scale(1.012);
+}
+
+.poster-feature figcaption {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.poster-feature figcaption h3 {
+  margin: 0;
+  color: var(--navy-950);
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.6vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.poster-feature figcaption a,
+.text-link {
+  flex: 0 0 auto;
+  color: var(--navy-800);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-underline-offset: 0.25rem;
 }
 
 .project-small h3 {
@@ -581,11 +636,222 @@ img {
   font-size: 0.87rem;
 }
 
+.skills-strip {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr;
+  gap: clamp(2rem, 7vw, 6rem);
+  margin-top: 1rem;
+  padding: clamp(1.6rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.skills-strip h3 {
+  margin: 0;
+  color: var(--navy-950);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.skills-strip dl {
+  margin: 0;
+}
+
+.skills-strip dl > div {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.skills-strip dl > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.skills-strip dt {
+  color: var(--blue-500);
+  font-size: 0.73rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skills-strip dd {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.personal-notes {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr;
+  gap: clamp(2rem, 7vw, 6rem);
+  margin-top: 1rem;
+  padding: clamp(1.6rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  background: var(--blue-100);
+}
+
+.personal-notes h3 {
+  margin: 0;
+  color: var(--navy-950);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.personal-notes > div:last-child {
+  color: var(--muted);
+}
+
+.personal-notes > div:last-child p:first-child {
+  margin-top: 0;
+}
+
 .aviary {
   overflow: hidden;
   padding-block: clamp(6rem, 12vw, 10rem);
   color: var(--paper);
   background: var(--bird-ink);
+}
+
+.meme-archive {
+  padding-block: clamp(6rem, 12vw, 10rem);
+  color: var(--bird-ink);
+  background: var(--bird-yellow);
+}
+
+.meme-archive-heading {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--bird-ink);
+}
+
+.meme-archive h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3.3rem, 8vw, 7.5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.collection-mark {
+  max-width: 220px;
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.collection-intro {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: clamp(2rem, 7vw, 7rem);
+  padding-block: 2.5rem;
+}
+
+.collection-intro > p {
+  max-width: 720px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  line-height: 1.45;
+}
+
+.collection-intro dl {
+  margin: 0;
+}
+
+.collection-intro dl > div {
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(23, 26, 30, 0.45);
+}
+
+.collection-intro dt,
+.meme-card-label {
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.collection-intro dd {
+  margin: 0.25rem 0 0;
+}
+
+.meme-collection {
+  margin-top: 1rem;
+}
+
+.collection-empty {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: 16rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 2px solid var(--bird-ink);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.collection-empty-number {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.8;
+}
+
+.collection-empty h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+}
+
+.collection-empty p:last-child {
+  margin: 0.5rem 0 0;
+}
+
+.meme-collection.has-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.meme-card {
+  margin: 0;
+  border: 2px solid var(--bird-ink);
+  background: #fff9df;
+}
+
+.meme-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-bottom: 2px solid var(--bird-ink);
+}
+
+.meme-card figcaption {
+  padding: 1rem;
+}
+
+.meme-card-title {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+}
+
+.meme-card-note {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
 }
 
 .aviary .section-shell {
@@ -751,6 +1017,17 @@ img {
   margin: 0;
 }
 
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--navy-800);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
 :focus-visible {
   outline: 3px solid var(--blue-500);
   outline-offset: 4px;
@@ -811,7 +1088,10 @@ img {
 
   .research-layout,
   .project-featured,
-  .about-card {
+  .about-card,
+  .skills-strip,
+  .personal-notes,
+  .collection-intro {
     grid-template-columns: 1fr;
   }
 
@@ -842,6 +1122,10 @@ img {
   .bird-card-middle {
     margin-top: 0;
   }
+
+  .meme-collection.has-items {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 560px) {
@@ -852,7 +1136,9 @@ img {
   .hero-actions,
   .section-heading-row,
   .aviary-heading,
+  .meme-archive-heading,
   .bird-verdict,
+  .poster-feature figcaption,
   .site-footer {
     align-items: stretch;
     flex-direction: column;
@@ -864,12 +1150,27 @@ img {
   }
 
   .section-index,
-  .aviary-disclaimer {
+  .aviary-disclaimer,
+  .collection-mark {
     margin: 0;
+    text-align: left;
   }
 
   .site-footer {
     gap: 0.4rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .collection-empty {
+    grid-template-columns: 1fr;
+  }
+
+  .meme-collection.has-items {
+    grid-template-columns: 1fr;
   }
 }
 
